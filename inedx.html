@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+
+
+    <div id="app" class="container pt-5 pb-5">
+        <form>
+            <section v-if="step == 1">
+                <h3>Step 1</h3>
+                <input  v-model="form.name" type="text" placeholder="Cual es tu nombre" class="form-control form-control-lg">
+            </section>
+            <section v-if="step == 2">
+                <h3>Step 2</h3>
+                <input type="text" v-model="form.phote"  placeholder="Cual es tu movil"
+                    class="form-control form-control-lg">
+                <input type="text" v-model="form.email"  placeholder="Cual es tu mail"
+                    class="form-control form-control-lg">
+
+            </section>
+            <section v-if="step == 3">
+                <h3>Step 3</h3>
+                <textarea class="form-control form-control-lg" v-model="form.message"
+                    placeholder="Pon aqui tu mensaje"></textarea>
+            </section>
+
+                <button
+                    v-if="step >1 " 
+                    @click.prevent="prevStep"> Anterior
+                </button>
+                <button
+                    v-if="step != totalSteps" 
+                    @click.prevent="nextStep"> Siguiente
+                </button>
+                <button
+                    v-if="step == totalSteps" 
+                    @click.prevent="sendResponse"
+                    > Enviar
+                </button>
+
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="app.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
